@@ -1,0 +1,342 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f1f5f9;
+    color: #1e293b;
+}
+
+header {
+    background: #172554;
+    color: white;
+    text-align: center;
+    padding: 35px 20px;
+}
+
+header h1 {
+    font-size: 32px;
+    margin-bottom: 12px;
+}
+
+header p {
+    color: #cbd5e1;
+    font-size: 16px;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    padding: 20px;
+    background: white;
+    box-shadow: 0 2px 8px #00000010;
+}
+
+nav button {
+    padding: 12px 20px;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    background: white;
+    color: #1e293b;
+    font-size: 15px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+nav button:hover,
+nav button.active {
+    background: #2563eb;
+    color: white;
+    border-color: #2563eb;
+}
+
+main {
+    max-width: 1000px;
+    margin: 30px auto;
+    padding: 30px;
+    background: white;
+    border-radius: 14px;
+    box-shadow: 0 4px 18px #0000000d;
+}
+
+main h2 {
+    margin-bottom: 15px;
+    color: #172554;
+}
+
+main p {
+    line-height: 1.7;
+    margin-bottom: 12px;
+}
+
+button:focus-visible {
+    outline: 3px solid #93c5fd;
+    outline-offset: 3px;
+}
+
+@media (max-width: 600px) {
+    header h1 {
+        font-size: 25px;
+    }
+
+    main {
+        margin: 16px;
+        padding: 20px;
+    }
+
+    nav {
+        gap: 8px;
+    }
+}
+
+.sim-info {
+    background: #eff6ff;
+    border-left: 4px solid #2563eb;
+    padding: 16px;
+    margin: 20px 0;
+    border-radius: 6px;
+    line-height: 1.6;
+}
+
+.timeline {
+    margin: 20px 0;
+}
+
+.activity-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 18px 0;
+}
+
+.activity-label {
+    width: 28px;
+    font-weight: bold;
+}
+
+.activity-track {
+    position: relative;
+    height: 36px;
+    flex: 1;
+    background: repeating-linear-gradient(
+        to right,
+        #e2e8f0 0,
+        #e2e8f0 1px,
+        transparent 1px,
+        transparent 10%
+    );
+    border-bottom: 1px solid #94a3b8;
+}
+
+.activity-bar {
+    position: absolute;
+    top: 2px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #cbd5e1;
+    color: #1e293b;
+    border-radius: 5px;
+    font-size: 12px;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.activity-bar.selected {
+    background: #16a34a;
+    color: white;
+}
+
+.activity-bar.current {
+    outline: 3px solid #f59e0b;
+    outline-offset: 1px;
+}
+
+.step-card {
+    background: #f8fafc;
+    border: 1px solid #cbd5e1;
+    border-radius: 10px;
+    padding: 18px;
+    margin: 20px 0;
+}
+
+.controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.controls button {
+    padding: 10px 16px;
+    border: none;
+    border-radius: 7px;
+    background: #2563eb;
+    color: white;
+    cursor: pointer;
+}
+
+.controls button:disabled {
+    background: #94a3b8;
+    cursor: not-allowed;
+}
+
+main h3 {
+    margin-top: 22px;
+    margin-bottom: 12px;
+    color: #334155;
+}
+
+.speed-control {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin: 20px 0;
+}
+
+.speed-control select {
+    padding: 9px 12px;
+    border: 1px solid #cbd5e1;
+    border-radius: 7px;
+    background: white;
+    color: #1e293b;
+}
+
+.controls button {
+    transition: background 0.2s, transform 0.2s;
+}
+
+.controls button:hover:not(:disabled) {
+    background: #1d4ed8;
+    transform: translateY(-1px);
+}
+
+.controls button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.activity-bar.rejected {
+    background: #dc2626;
+    color: white;
+}
+
+.activity-bar.current {
+    outline: 3px solid #f59e0b;
+    outline-offset: 1px;
+}
+
+.activity-bar.selected {
+    background: #16a34a;
+    color: white;
+}
+
+#activityInput {
+    display: block;
+    width: 100%;
+    margin: 12px 0;
+    padding: 12px;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    font-family: monospace;
+    font-size: 15px;
+    line-height: 1.6;
+    resize: vertical;
+}
+
+.input-help {
+    color: #64748b;
+    font-size: 13px;
+    margin-bottom: 12px;
+}
+
+.input-controls {
+    margin-top: 12px;
+}
+
+.error-message {
+    color: #dc2626;
+    font-weight: bold;
+}
+
+.activity-bar.rejected {
+    background: #dc2626;
+    color: white;
+}
+
+.controls button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.controls button {
+    transition: background 0.2s;
+}
+
+.controls button:hover:not(:disabled) {
+    background: #1d4ed8;
+}
+
+.speed-control {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 18px 0;
+}
+
+.speed-control select {
+    padding: 9px;
+    border: 1px solid #cbd5e1;
+    border-radius: 7px;
+}
+#capacityInput {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    margin: 10px 0 16px;
+    padding: 10px;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+}
+
+.knapsack-items {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin: 16px 0;
+}
+
+.knapsack-item {
+    flex: 1 1 140px;
+    padding: 14px;
+    background: #eff6ff;
+    border: 1px solid #bfdbfe;
+    border-radius: 10px;
+}
+
+.knapsack-item p {
+    margin: 6px 0;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 16px 0;
+}
+
+th, td {
+    border: 1px solid #cbd5e1;
+    padding: 10px;
+    text-align: left;
+}
+
+th {
+    background: #eff6ff;
+}
